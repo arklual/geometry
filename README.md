@@ -2,7 +2,7 @@
 Geometry is a project with open source code. It is developing by community. 
 Geometry have to solve the school tasks using the coordinate method. 
 
-##How it will work?
+## How it will work?
 
 In the picture you can see the list of base classes that will be this project. Probably, 
 you say that the Point class is very useless. But in future we plan to add new functionality. 
