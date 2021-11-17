@@ -10,4 +10,4 @@ Each polygon in this project will contains arrays of vectors and angles. So we c
 polygon and we needn't to make a lot of classes. If we need to add special data or special methods to specific 
 polygon then we can create a child class.
 
-![Classes](https://raw.githubusercontent.com/arklual/geometry/64b7a30503ebc084d5a5b36ddeeba7d963a7e8b3/Geometry.svg)
+![Classes](https://raw.githubusercontent.com/arklual/geometry/9d30ea3f0a582f98cc7e97579da34ffeafb9ca20/Geometry.svg)
