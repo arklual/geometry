@@ -33,7 +33,7 @@ class Vector:
     def get_value(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
-    def get_direction(self):
+    def get_direction_in_degrees(self):
         return math.degrees(math.atan2(self.y, self.x))
 
     def get_x(self):
