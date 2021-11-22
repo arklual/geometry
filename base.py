@@ -34,7 +34,7 @@ class Vector:
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
     def get_direction_in_degrees(self):
-        return math.degrees(math.atan2(self.y, self.x))
+        return Angle(value=math.degrees(math.atan2(self.y, self.x)))
 
     def get_x(self):
         return self.__x
@@ -51,7 +51,7 @@ class Angle:
 
     def set_value(self, vector1=None, vector2=None, value=None):
         if vector1 and vector2 and not value:
-            self.__value = math.degrees(math.atan2(vector2.get_y(), vector2.get_x()) - math.atan2(vector1.get_y(), vector1.get_x()))
+            self.__value = self.__get_angle_between_two_vectors(vector1=vector1, vector2=vector2)
         elif value and not vector1 and not vector2:
             while value > 360:
                 value -= 360
@@ -71,5 +71,7 @@ class Angle:
     def get_tan(self):
         return math.degrees(math.tan(self.__value))
 
-
-
+    @staticmethod
+    def __get_angle_between_two_vectors(vector1, vector2):
+        return Angle(value=math.degrees(
+            math.atan2(vector2.get_y(), vector2.get_x()) - math.atan2(vector1.get_y(), vector1.get_x())))
