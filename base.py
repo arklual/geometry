@@ -30,6 +30,9 @@ class Vector:
         self.__x = float(end.x - start.x)
         self.__y = float(end.y - start.y)
 
+    def __calc_coordinates_by_value(self, value):
+        math.sqrt(self.__x ** 2 + self.__y ** 2)
+
     def get_value(self):
         return math.sqrt(self.__x ** 2 + self.__y ** 2)
 
@@ -91,15 +94,3 @@ class Angle:
         return Angle(value=math.degrees(
             math.atan2(vector2.get_y(), vector2.get_x()) - math.atan2(vector1.get_y(), vector1.get_x())))
 
-
-class Polygon:
-    num_of_vertex = int(0)
-    sides = []
-    angles = []
-
-    def __init__(self, num_of_vertex, sides, angles):
-        if not len(list(sides)) == num_of_vertex or not len(list(angles)) == num_of_vertex:
-            raise Exception("You enter not correct data")
-        self.num_of_vertex = int(num_of_vertex)
-        self.sides = list(sides)
-        self.angles = list(angles)
