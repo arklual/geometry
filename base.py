@@ -31,10 +31,10 @@ class Vector:
         self.__y = float(end.y - start.y)
 
     def get_value(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
+        return math.sqrt(self.__x ** 2 + self.__y ** 2)
 
     def get_direction_in_degrees(self):
-        return Angle(value=math.degrees(math.atan2(self.y, self.x)))
+        return Angle(value=math.degrees(math.atan2(self.__y, self.__x)))
 
     def get_x(self):
         return self.__x
