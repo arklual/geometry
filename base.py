@@ -90,3 +90,15 @@ class Angle:
     def __get_angle_between_two_vectors(vector1, vector2):
         return Angle(value=math.degrees(
             math.atan2(vector2.get_y(), vector2.get_x()) - math.atan2(vector1.get_y(), vector1.get_x())))
+
+class Polygon:
+  num_of_vertex = int(0)
+  sides = []
+  angles = []
+
+  def __init__(self, num_of_vertex, sides, angles):
+    if not len(list(sides)) == num_of_vertex or not len(list(angles)) == num_of_vertex:
+      raise Exception("You enter not correct data")
+    self.num_of_vertex = int(num_of_vertex)
+    self.sides = list(sides)
+    self.angles = list(angles)
