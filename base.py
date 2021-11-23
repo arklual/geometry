@@ -53,11 +53,14 @@ class Angle:
         if vector1 and vector2 and not value:
             self.__value = self.__get_angle_between_two_vectors(vector1=vector1, vector2=vector2)
         elif value and not vector1 and not vector2:
-            while value > 360:
-                value -= 360
             self.__value = value
+            self.__correct_value()
         else:
             raise Exception("Too many or too few arguments")
+    
+    def __correct_value(self):
+        while self.__value > 360:
+            self.__value -= 360
 
     def get_value_in_degrees(self):
         return self.__value
