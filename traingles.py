@@ -1,3 +1,8 @@
+from . import base
+from base import Vector, Point
+import math
+import numpy as np
+
 class Triangle:
     point_a = Point(0, 0)
     point_b = Point(0, 0)
