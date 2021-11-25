@@ -14,15 +14,21 @@ class Vector:
     __x = float(0)
     __y = float(0)
 
-    def __init__(self, x=None, y=None, start=None, end=None):
-        self.set_coordinates(x=x, y=y, start=start, end=end)
+    def __init__(self, x=None, y=None, start=None, end=None, value=None):
+        self.set_coordinates(x=x, y=y, start=start, end=end, value=value)
 
-    def set_coordinates(self, x=None, y=None, start=None, end=None):
-        if x and y and not start and not end:
+    def set_coordinates(self, x=None, y=None, start=None, end=None, value=None):
+        if x is not None and y is not None and start is None and end is None and value is None:
             self.__x = float(x)
             self.__y = float(y)
-        elif start and end and not x and not y:
+        elif x is None and y is None and start is not None and end is not None and value is None:
             self.__calc_x_and_y(start, end)
+        elif x is not None and y is None and start is None and end is None and value is not None:
+            self.__x = float(x)
+            self.__calc_y_by_value_and_x(value=value)
+        elif x is None and y is not None and start is None and end is None and value is not None:
+            self.__y = float(y)
+            self.__calc_x_by_value_and_y(value=value)
         else:
             raise Exception("Too many or too few arguments")
 
@@ -30,8 +36,11 @@ class Vector:
         self.__x = float(end.x - start.x)
         self.__y = float(end.y - start.y)
 
-    def __calc_coordinates_by_value(self, value):
-        math.sqrt(self.__x ** 2 + self.__y ** 2)
+    def __calc_x_by_value_and_y(self, value):
+        self.__x = math.sqrt(self.get_value() ** 2 - self.__y ** 2)
+
+    def __calc_y_by_value_and_x(self, value):
+        self.__y = math.sqrt(self.get_value() ** 2 - self.__x ** 2)
 
     def get_value(self):
         return math.sqrt(self.__x ** 2 + self.__y ** 2)
@@ -93,4 +102,3 @@ class Angle:
     def __get_angle_between_two_vectors(vector1, vector2):
         return Angle(value=math.degrees(
             math.atan2(vector2.get_y(), vector2.get_x()) - math.atan2(vector1.get_y(), vector1.get_x())))
-
