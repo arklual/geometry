@@ -4,6 +4,7 @@ import math
 import numpy as np
 
 class Triangle:
+    
     point_a = Point(0, 0)
     point_b = Point(0, 0)
     point_c = Point(0, 0)
@@ -29,41 +30,54 @@ class Triangle:
 
     def is_rectangular(a, b, c):
         # проверить равен ли угол 90 градусов между какими-то векторами 
-        vector1 = np.array([[a.x, b.x], [a.y, b.y]])
-        vector2 = np.array([[a.x, c.x], [a.y], c.y])
-        vector3 = np.array([[b.x, c.x], [b.y, c.y]])
+        #vector1 = np.array([[a.x, b.x], [a.y, b.y]])
+        #vector2 = np.array([[a.x, c.x], [a.y], c.y])
+        #vector3 = np.array([[b.x, c.x], [b.y, c.y]])
+
+        ab_vector = Vector.set_coordinates(x = a.x - b.x, y = a.y - b.y)
+        ac_vector = Vector.set_coordinates(x = a.x - c.x, y = a.y - b.y)
+        bc_vector = Vector.set_coordinates(x = b.x - c.x, y = b.y - c.y)
         
         # between v1 and v2
-        sc_multiplication_of_v1_and_v2 = float(np.dot(vector1, vector2))
-        vector1_length = Vector.get_value(x = (a.x - b.x), y = (a.y-b.y))
-        vector2_length = Vector.get_value(x = (a.x-c.x), y = (a.y - c.y))
-        magnitude_of_v1_and_v2 = vector1_length * vector2_length
-        cosine_of_angle_1 = sc_multiplication_of_v1_and_v2/magnitude_of_v1_and_v2
+        ang = Angle(ab_vector, ac_vector)
+        ang1 = Angle(ab_vector, bc_vector)
+        ang2 = Angle(ac_vector, bc_vector)
+
+
+        angle1 = ang.__get_angle_between_two_vectors(ab_vector, ac_vector).get_value_in_degrees()
+        angle2 = ang.__get_angle_between_two_vectors(ab_vector, bc_vector).get_value_in_degrees()
+        angle3 = ang.__get_angle_between_two_vectors(ac_vector, bc_vector).get_value_in_degrees()
+
+
+        #sc_multiplication_of_v1_and_v2 = float(np.dot(vector1, vector2))
+        # vector1_length = Vector.get_value(x = (a.x - b.x), y = (a.y-b.y))
+        # vector2_length = Vector.get_value(x = (a.x-c.x), y = (a.y - c.y))
+        # magnitude_of_v1_and_v2 = vector1_length * vector2_length
+        # cosine_of_angle_1 = sc_multiplication_of_v1_and_v2/magnitude_of_v1_and_v2
 
 
         # between v2 and v3
-        sc_multiplication_of_v2_and_v3 = float(np.dot(vector1, vector2))
-        vector3_length = Vector.get_value(x = (b.x-c.x), y = (b.y-c.y))
-        vector2_length = Vector.get_value(x = (a.x-c.x), y = (a.y - c.y))
-        magnitude_of_v3_and_v2 = vector3_length * vector2_length
-        cosine_of_angle_2 = sc_multiplication_of_v2_and_v3/magnitude_of_v3_and_v2
+        # sc_multiplication_of_v2_and_v3 = float(np.dot(vector1, vector2))
+        # vector3_length = Vector.get_value(x = (b.x-c.x), y = (b.y-c.y))
+        # vector2_length = Vector.get_value(x = (a.x-c.x), y = (a.y - c.y))
+        # magnitude_of_v3_and_v2 = vector3_length * vector2_length
+        # cosine_of_angle_2 = sc_multiplication_of_v2_and_v3/magnitude_of_v3_and_v2
 
         # between v1 and v3
-        sc_multiplication_of_v1_and_v3 = float(np.dot(vector1, vector3))
-        magnitude_of_v1_and_v2 = vector1_length * vector3_length
-        cosine_of_angle_3 = sc_multiplication_of_v1_and_v3/magnitude_of_v1_and_v2
+        # sc_multiplication_of_v1_and_v3 = float(np.dot(vector1, vector3))
+        # magnitude_of_v1_and_v2 = vector1_length * vector3_length
+        # cosine_of_angle_3 = sc_multiplication_of_v1_and_v3/magnitude_of_v1_and_v2
 
 
-        if cosine_of_angle_2 == 0 or cosine_of_angle_1 == 0 or cosine_of_angle_3 == 0:
+        if angle1 == 90 or angle2 == 90 or angle3 == 90:
             return True
-
         else:
-            return True
+            return False
 
 
 
 
-        pass
+        
 
     def is_equilateral(a, b, c):
         # проверить рав-во всех векторов
@@ -97,3 +111,7 @@ class Triangle:
         area = math.sqrt((p*(p-vector1)*(p-vector2)*(p-vector3)))
 
         return area
+
+
+
+
