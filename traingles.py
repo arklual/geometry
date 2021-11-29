@@ -44,9 +44,9 @@ class Triangle:
         ang2 = Angle(ac_vector, bc_vector)
 
 
-        angle1 = ang.__get_angle_between_two_vectors(ab_vector, ac_vector).get_value_in_degrees()
-        angle2 = ang.__get_angle_between_two_vectors(ab_vector, bc_vector).get_value_in_degrees()
-        angle3 = ang.__get_angle_between_two_vectors(ac_vector, bc_vector).get_value_in_degrees()
+        angle1 = ang.get_value_in_degrees()
+        angle2 = ang1.get_value_in_degrees()
+        angle3 = ang2.get_value_in_degrees()
 
 
         #sc_multiplication_of_v1_and_v2 = float(np.dot(vector1, vector2))
