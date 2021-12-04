@@ -104,9 +104,9 @@ class Triangle:
         vector2 = Vector(x = (b.x-c.x), y = (b.y-c.y))
         vector3 = Vector(x = (a.x-c.x), y = (a.y - c.y))
 
-        vector1_value = Vector.get_value()
-        vector2_value = Vector.get_value()
-        vector3_value = Vector.get_value()
+        vector1_value = vector1.get_value()
+        vector2_value = vector2.get_value()
+        vector3_value = vector3.get_value()
 
         P = vector3_value + vector2_value + vector1_value
 
@@ -120,9 +120,9 @@ class Triangle:
         vector2 = Vector(x = (b.x-c.x), y = (b.y-c.y))
         vector3 = Vector(x = (a.x-c.x), y = (a.y - c.y))
 
-        vector1_value = Vector.get_value()
-        vector2_value = Vector.get_value()
-        vector3_value = Vector.get_value()
+        vector1_value = vector1.get_value()
+        vector2_value = vector2.get_value()
+        vector3_value = vector3.get_value()
         P = vector3_value + vector2_value + vector1_value
         p = P/2
         area = math.sqrt((p*(p-vector1_value)*(p-vector2_value)*(p-vector3_value)))
