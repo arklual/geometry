@@ -5,21 +5,21 @@ import numpy as np
 
 class Triangle:
     
-    point_a = Point(0, 0)
-    point_b = Point(0, 0)
-    point_c = Point(0, 0)
+    a = Point(0, 0)
+    b = Point(0, 0)
+    c = Point(0, 0)
 
     def __init__(self, point_a, point_b, point_c):
-        self.point_a = point_a
-        self.point_b = point_b
-        self.point_c = point_c
+        self.a = point_a
+        self.b = point_b
+        self.c = point_c
 
         # проверить существует ли такой треугольник
     
-    def is_isosceles(a, b, c):
-        vector1 = Vector(x = a.x - b.x, y = a.y - b.y)
-        vector2 = Vector(x = b.x - c.x, y = b.y - c.y)
-        vector3 = Vector(x = a.x - c.x, y = a.y - c.x)
+    def is_isosceles(self):
+        vector1 = Vector(start = self.a, end = self.b)
+        vector2 = Vector(start = self.b, end = self.c)
+        vector3 = Vector(start = self.c, end = self.a)
 
         vector1_value = vector1.get_value()
         vector2_value = vector2.get_value()
@@ -32,15 +32,15 @@ class Triangle:
 
         # проверить равны ли длины каких-то двух сторон
 
-    def is_rectangular(a, b, c):
+    def is_rectangular(self):
         # проверить равен ли угол 90 градусов между какими-то векторами 
         #vector1 = np.array([[a.x, b.x], [a.y, b.y]])
         #vector2 = np.array([[a.x, c.x], [a.y], c.y])
         #vector3 = np.array([[b.x, c.x], [b.y, c.y]])
 
-        ab_vector = Vector(x = a.x - b.x, y = a.y - b.y)
-        ac_vector = Vector(x = a.x - c.x, y = a.y - c.x)
-        bc_vector = Vector(x = b.x - c.x, y = b.y - c.y)
+        ab_vector = Vector(start = self.a, end = self.b)
+        ac_vector = Vector(start = self.c, end = self.a)
+        bc_vector = Vector(start = self.b, end = self.c)
         
         # between v1 and v2
         ang = Angle(ab_vector, ac_vector)
@@ -83,11 +83,11 @@ class Triangle:
 
         
 
-    def is_equilateral(a, b, c):
+    def is_equilateral(self):
         # проверить рав-во всех векторов
-        vector1 = Vector(x = (a.x - b.x), y = (a.y-b.y))
-        vector2 = Vector(x = (b.x-c.x), y = (b.y-c.y))
-        vector3 = Vector(x = (a.x-c.x), y = (a.y - c.y))
+        vector1 = Vector(start = self.a, end = self.b)
+        vector2 = Vector(start = self.b, end = self.c)
+        vector3 = Vector(start = self.c, end = self.a)
 
         vector1_value = vector1.get_value()
         vector2_value = vector2.get_value()
@@ -98,11 +98,11 @@ class Triangle:
         else:
             return False
 
-    def perimeter(a, b, c):
+    def perimeter(self):
         # side1 + side2 + side3
-        vector1 = Vector(x = (a.x - b.x), y = (a.y-b.y))
-        vector2 = Vector(x = (b.x-c.x), y = (b.y-c.y))
-        vector3 = Vector(x = (a.x-c.x), y = (a.y - c.y))
+        vector1 = Vector(start = self.a, end = self.b)
+        vector2 = Vector(start = self.b, end = self.c)
+        vector3 = Vector(start = self.c, end = self.a)
 
         vector1_value = vector1.get_value()
         vector2_value = vector2.get_value()
@@ -113,12 +113,15 @@ class Triangle:
         return P
         
 
-    def area(a, b, c):
+    def area(self):
         # count half of perimeter as p
         # area = math.sqrt((p*(p-side1)*(p-side2)*(p-side3)))
-        vector1 = Vector(x = (a.x - b.x), y = (a.y-b.y))
-        vector2 = Vector(x = (b.x-c.x), y = (b.y-c.y))
-        vector3 = Vector(x = (a.x-c.x), y = (a.y - c.y))
+        # vector1 = Vector(x = (self.a.x - self.b.x), y = (self.a.y-self.b.y))
+        # vector2 = Vector(x = (self.b.x-self.c.x), y = (self.b.y-self.c.y))
+        # vector3 = Vector(x = (self.a.x-self.c.x), y = (self.a.y - self.c.y))
+        vector1 = Vector(start = self.a, end = self.b)
+        vector2 = Vector(start = self.b, end = self.c)
+        vector3 = Vector(start = self.c, end = self.a)
 
         vector1_value = vector1.get_value()
         vector2_value = vector2.get_value()
