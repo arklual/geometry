@@ -1,7 +1,6 @@
 from . import base
 from base import Vector, Point, Angle
 import math
-import numpy as np
 
 class Triangle:
     
