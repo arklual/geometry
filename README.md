@@ -1,6 +1,6 @@
 # Geometry. What is it?
 Geometry is a project with open source code. It is developing by community. 
-Geometry have to solve the school tasks using the coordinate method. 
+Geometry have to teach students how to solve the school tasks using the coordinate method from 9 to 11 russian school classes. 
 
 ## How it will work?
 
