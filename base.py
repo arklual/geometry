@@ -89,15 +89,6 @@ class Angle:
     def get_value_in_radians(self):
         return math.radians(self.__value)
 
-    def get_sin_in_radians(self):
-        return math.sin(self.__value)
-
-    def get_cos_in_radians(self):
-        return math.cos(self.__value)
-
-    def get_tan_in_radians(self):
-        return math.tan(self.__value)
-
     @staticmethod
     def __get_angle_between_two_vectors(vector1, vector2):
         return Angle(value=math.degrees(
