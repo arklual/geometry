@@ -78,13 +78,13 @@ class Angle:
         return self.__value
 
     def get_sin_in_degrees(self):
-        return math.degrees(math.sin(self.__value))
+        return math.sin(math.radians(self.__value))
 
     def get_cos_in_degrees(self):
-        return math.degrees(math.cos(self.__value))
+        return math.cos(math.radians(self.__value))
 
     def get_tan_in_degrees(self):
-        return math.degrees(math.tan(self.__value))
+        return math.tan(math.radians(self.__value))
 
     def get_value_in_radians(self):
         return math.radians(self.__value)
