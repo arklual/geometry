@@ -2,16 +2,44 @@
 Geometry is a project with open source code. It is developing by community. 
 Geometry have to teach students how to solve the school tasks using the coordinate method from 9 to 11 russian school classes. 
 
-## How it will work?
+# Documentation
+## base.py
+#### 1. Class Point
+Coordinates of a point are keeped in this class. This is a data structure so there isn't any methods.
+#### 2. Class Vector
+**Methods**:
+```python
+def __init__(self, x=None, y=None, start=None, end=None, value=None)
+```
+We can init vector by:
+* x and y
+* start poin and end point
+* x and value of the vector
+* y and value of the vector
+```python
+def set_coordinates(self, x=None, y=None, start=None, end=None, value=None):
+```
+This method set vector by arguments(arguments are same as arguments in constructor).
+```python
+def get_value(self)
+```
+This method returns a value of the vector.
+```python
+def get_direction_in_degrees(self)
+```
+This method returns a direction of the vector in degrees related to Ox.
+```python
+def get_x(self)
+```
+This method returns x coordinate of the vector.
+```python
+def get_y(self)
+```
+This method returns x coordinate of the vector. <br>
 
-In the picture you can see the list of base classes that will be this project. Probably, 
-you say that the Point class is very useless. But in future we plan to add new functionality. 
-Each polygon in this project will contains arrays of vectors and angles. So we can keep data about different
-polygon and we needn't to make a lot of classes. If we need to add special data or special methods to specific 
-polygon then we can create a child class.
-
-![Classes](https://raw.githubusercontent.com/arklual/geometry/9d30ea3f0a582f98cc7e97579da34ffeafb9ca20/Geometry.svg)
-
+**Operations:**
+* Add <br>
+This operation returns the vector, that equals sum of vectros.
 ## Useful links
 https://github.com/JnyJny/Geometry/tree/master/Geometry <br>
 https://scikit-geometry.github.io/scikit-geometry/arrangements_visibility.html <br>

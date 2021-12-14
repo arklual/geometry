@@ -29,16 +29,6 @@ class Vector:
         else:
             raise Exception("Too many or too few arguments")
 
-    def __calc_x_and_y(self, start: Point, end: Point):
-        self.__x = float(end.x - start.x)
-        self.__y = float(end.y - start.y)
-
-    def __calc_x_by_value_and_y(self, value):
-        self.__x = math.sqrt(self.get_value() ** 2 - self.__y ** 2)
-
-    def __calc_y_by_value_and_x(self, value):
-        self.__y = math.sqrt(self.get_value() ** 2 - self.__x ** 2)
-
     def get_value(self):
         return math.sqrt(self.__x ** 2 + self.__y ** 2)
 
@@ -50,6 +40,16 @@ class Vector:
 
     def get_y(self):
         return self.__y
+
+    def __calc_x_and_y(self, start: Point, end: Point):
+        self.__x = float(end.x - start.x)
+        self.__y = float(end.y - start.y)
+
+    def __calc_x_by_value_and_y(self, value):
+        self.__x = math.sqrt(self.get_value() ** 2 - self.__y ** 2)
+
+    def __calc_y_by_value_and_x(self, value):
+        self.__y = math.sqrt(self.get_value() ** 2 - self.__x ** 2)
 
 
 class Angle:
