@@ -2,10 +2,6 @@ from base import *
 
 
 class Polygon:
-    num_of_vertex = int(0)
-    sides = []
-    angles = []
-
     def __init__(self, num_of_vertex, sides, angles):
         if not len(list(sides)) == num_of_vertex or not len(list(angles)) == num_of_vertex:
             raise Exception("Entered data isn't correct")

@@ -2,20 +2,17 @@ import math
 
 
 class Point:
-    x = float(0)
-    y = float(0)
-
     def __init__(self, x, y):
         self.x = float(x)
         self.y = float(y)
 
 
 class Vector:
-    __x = float(0)
-    __y = float(0)
-
     def __init__(self, x=None, y=None, start=None, end=None, value=None):
         self.set_coordinates(x=x, y=y, start=start, end=end, value=value)
+    
+    def __add__(self, other):
+      return Vector(x=(self.__x+other.get_x()), y=(self.__y+other.get_y()))
 
     def set_coordinates(self, x=None, y=None, start=None, end=None, value=None):
         if x is not None and y is not None and start is None and end is None and value is None:
@@ -56,8 +53,6 @@ class Vector:
 
 
 class Angle:
-    __value = float(0)
-
     def __init__(self, vector1=None, vector2=None, value=None):
         self.set_value(vector1=vector1, vector2=vector2, value=value)
 

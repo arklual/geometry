@@ -3,10 +3,6 @@ import math
 
 
 class Triangle:
-    a = Point(0, 0)
-    b = Point(0, 0)
-    c = Point(0, 0)
-
     def __init__(self, point_a, point_b, point_c):
         self.a = point_a
         self.b = point_b
