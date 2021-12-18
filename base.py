@@ -1,5 +1,5 @@
 import math
-
+import numpy as np
 
 class Point:
     def __init__(self, x, y):
@@ -16,6 +16,12 @@ class Vector:
     
     def __mul__(self, other):
         return Vector(x=self.x * other, y = self.y * other)
+    
+    def scalar_multiplication_of_vectors(self, vector1, vector2):
+        np_vector1 = np.array([vector1.x, vector1.y])
+        np_vector2 = np.array([vector2.x, vector2.y])
+        np_product = np.dot(np_vector1, np_vector2)
+        return np_product
 
     def set_coordinates(self, x=None, y=None, start=None, end=None, value=None):
         if x is not None and y is not None and start is None and end is None and value is None:
