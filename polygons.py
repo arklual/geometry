@@ -38,7 +38,7 @@ class Parallelogram(Quadrangle):
 			raise Exception("It isn't a parallelogram")
 
 	def __is_parallelogram(self):
-		#TODO: Parallelogram test with the support None-values
+		#TODO: Parallelogram test with support of None-values
 		#Do we even need tests? 
 		return True
 	
@@ -73,4 +73,4 @@ class Rhombus(Parallelogram):
 
 class Square(Rhombus, Rectangle):
 	def __init__(self, side):
-		self.data = Rhombus.__init__(self=self, side=side, angles = [Angle(value=90),Angle(value=90),Angle(value=90),Angle(value=90)]) #finish this..
+		self.data = Rhombus.__init__(self=self, side=side, angles = [Angle(value=90),Angle(value=90),Angle(value=90),Angle(value=90)]) 
