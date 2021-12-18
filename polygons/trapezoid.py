@@ -1,4 +1,3 @@
-from . import base
 from base import Quadrangle, Angle
 
 class Trapezoid(Quadrangle):
@@ -11,6 +10,8 @@ class Trapezoid(Quadrangle):
         # check if two base sides are parallel
         if (self.sides[1].get_x() / self.sides[3].get_x() == self.sides[1].get_y() / self.sides[3].get_y() and self.sides[0].get_x() / self.sides[2].get_x() != self.sides[0].get_y() / self.sides[2].get_y() / self.sides[3].get_x() != self.sides[1].get_y() / self.sides[3].get_y() and self.sides[0].get_x() / self.sides[2].get_x() == self.sides[0].get_y() / self.sides[2].get_y()):
             return True
+        else:
+            return False
 
     def is_isosceles(self):
         ab = self.sides[0].get_value()
@@ -20,6 +21,8 @@ class Trapezoid(Quadrangle):
 
         if (ab == cd and bc != da) or (bc == da and ab != cd):
             return True
+        else:
+            return False
 
 
     def is_rectangular(self):
