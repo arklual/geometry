@@ -55,7 +55,12 @@ class Parallelogram(Quadrangle):
 		if ("s2" in s and "s3" in s) and  "a4" in a: return self.data.fig()["s3"].get_value()*self.data.fig()["s2"].get_value()*self.data.fig()["a4"].get_sin();
 		if ("s4" in s and "s1" in s) and  "a2" in a: return self.data.fig()["s1"].get_value()*self.data.fig()["s4"].get_value()*self.data.fig()["a2"].get_sin();
 		if ("s4" in s and "s1" in s) and  "a4" in a: return self.data.fig()["s1"].get_value()*self.data.fig()["s4"].get_value()*self.data.fig()["a4"].get_sin();
-		#another area calc metods [?]
+		#calc by 2 sides (pls, sbd test this piece of shit)
+		if "s1" in s and "s2" in s: return self.data.fig()["s1"].get_value()*self.data.fig()["s2"].get_value()*(1/((self.data.fig()["s1"].get_x()*self.data.fig()["s2"].get_x() + self.data.fig()["s1"].get_y()*self.data.fig()["s2"].get_y())/(self.data.fig()["s1"].get_value()*self.data.fig()["s2"].get_value())));
+		if "s2" in s and "s3" in s: return self.data.fig()["s3"].get_value()*self.data.fig()["s2"].get_value()*(1/((self.data.fig()["s3"].get_x()*self.data.fig()["s2"].get_x() + self.data.fig()["s3"].get_y()*self.data.fig()["s2"].get_y())/(self.data.fig()["s3"].get_value()*self.data.fig()["s2"].get_value())));
+		if "s4" in s and "s3" in s: return self.data.fig()["s3"].get_value()*self.data.fig()["s4"].get_value()*(1/((self.data.fig()["s3"].get_x()*self.data.fig()["s4"].get_x() + self.data.fig()["s3"].get_y()*self.data.fig()["s4"].get_y())/(self.data.fig()["s3"].get_value()*self.data.fig()["s4"].get_value())));
+		if "s4" in s and "s1" in s: return self.data.fig()["s1"].get_value()*self.data.fig()["s4"].get_value()*(1/((self.data.fig()["s1"].get_x()*self.data.fig()["s4"].get_x() + self.data.fig()["s1"].get_y()*self.data.fig()["s4"].get_y())/(self.data.fig()["s1"].get_value()*self.data.fig()["s4"].get_value())));
+		
 		
 class Rectangle(Parallelogram):
 	def __init__(self, sides):
