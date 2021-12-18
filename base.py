@@ -13,6 +13,9 @@ class Vector:
     
     def __add__(self, other):
       return Vector(x=(self.__x+other.get_x()), y=(self.__y+other.get_y()))
+    
+    def __mul__(self, other):
+        return Vector(x=self.x * other, y = self.y * other)
 
     def set_coordinates(self, x=None, y=None, start=None, end=None, value=None):
         if x is not None and y is not None and start is None and end is None and value is None:
