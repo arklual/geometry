@@ -27,7 +27,13 @@ This method returns a value of the vector.
 ```python
 def get_direction_in_degrees(self)
 ```
+
 This method returns a direction of the vector in degrees related to Ox.
+```python
+def scalar_multiplication_of_vectors(self, vector1, vector2)
+```
+This method returns a scalar muliplication of two vectors
+
 ```python
 def get_x(self)
 ```
@@ -40,6 +46,8 @@ This method returns x coordinate of the vector. <br>
 **Operations:**
 * Add <br>
 This operation returns the vector, that equals sum of vectros.
+* Multiplication <br>
+This operation returns the vector< that equals multiplication of vectors
 ## Useful links
 https://github.com/JnyJny/Geometry/tree/master/Geometry <br>
 https://scikit-geometry.github.io/scikit-geometry/arrangements_visibility.html <br>
